@@ -11,7 +11,7 @@ pipeline {
         dir "."
         label "master"
         additionalBuildArgs  " --build-arg pbadhe34/login:latest"
-        args "-t pbadhe34/login -v /tmp:/tmp"
+        args "pbadhe34/login -v /tmp:/tmp"
       }
     }
       steps {
