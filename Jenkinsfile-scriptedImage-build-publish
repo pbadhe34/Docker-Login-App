@@ -4,6 +4,7 @@ node {
     def dockerfile = 'Dockerfile-login'
     def customImage = docker.build("login-app:${env.BUILD_ID}", "-f ${dockerfile} .")
 
+     customImage.push() 
   //Run the container and push the image to docker hub
 
   docker.image('login-app:${env.BUILD_ID}').withRun('-p 8080:8080') { c ->
@@ -12,5 +13,5 @@ node {
         sh 'curl http://localhost:8080/Login'
        
       }
-     customImage.push() 
+    
     }
