@@ -10,7 +10,7 @@ node {
      customImage.push() 
   //Run the container and push the image to docker hub
 
-  docker.image('login-app:${env.BUILD_ID}').withRun('-p 8080:8080') { c ->
+  docker.image('pbadhe34/apps:login:${env.BUILD_ID}').withRun('-p 8080:8080') { c ->
         
         sh 'sleep 5'        
         sh 'curl http://localhost:8080/Login'
