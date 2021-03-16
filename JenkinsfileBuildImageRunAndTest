@@ -7,7 +7,7 @@ pipeline {
         dir '.'
         label 'master'
         additionalBuildArgs  '--build-arg version=1.0.2'
-        args 'args '-t login-app -v /tmp:/tmp'
+        args '-t pbadhe34/login -v /tmp:/tmp'
     }
     docker { image 'pbadhe34/apps:login' 
          args '-p 8080:8080'
