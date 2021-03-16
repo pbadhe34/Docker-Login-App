@@ -1,5 +1,9 @@
 pipeline {
-     agent {
+     agent none    
+  
+  stages {
+     stage('Image build') {
+       agent {
     // Equivalent to "docker build -f Dockerfile-login --build-arg version=1.0.2 .
 
     dockerfile {
@@ -10,20 +14,17 @@ pipeline {
         args "-t pbadhe34/login -v /tmp:/tmp"
       }
     }
-     agent {
-       docker { image "pbadhe34/login" 
-           args "-p 8080:8080"
-             }
-         }
-  
-  stages {
-     stage('Image build') {
       steps {
                   
             echo "Build image" 
       } 
     }
    stage('Test') {
+     agent {
+          docker { image "pbadhe34/login" 
+              args "-p 8080:8080"
+             }
+         }
             steps {
                 sh 'sleep 5'
                 sh "curl http://localhost:8080/Login"
