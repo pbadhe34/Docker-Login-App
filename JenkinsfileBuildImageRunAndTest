@@ -9,9 +9,9 @@ pipeline {
     dockerfile {
         filename "Dockerfile-login"
         dir "."
-        label "master"          
-        args "-t pbadhe34/login"
-        additionalBuildArgs  "  --build-arg --tag pbadhe34/login:latest" 
+        label "master"       
+        // additionalBuildArgs  "  --build-arg --tag pbadhe34/login:latest" 
+         args "-t pbadhe34/login"
       }
     }
       steps {
