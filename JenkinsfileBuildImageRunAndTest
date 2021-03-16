@@ -8,11 +8,14 @@ pipeline {
         label "master"
         additionalBuildArgs  "--build-arg version=1.0.2"
         args "-t pbadhe34/login -v /tmp:/tmp"
+      }
     }
-    docker { image "pbadhe34/login" 
-         args "-p 8080:8080"
-        }
- }
+     agent {
+       docker { image "pbadhe34/login" 
+           args "-p 8080:8080"
+             }
+         }
+  
   stages {
      stage('Image build') {
       steps {
