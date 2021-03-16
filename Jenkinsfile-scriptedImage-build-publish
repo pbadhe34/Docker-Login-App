@@ -2,7 +2,7 @@
 node {
     checkout scm
     def dockerfile = 'Dockerfile-login'
-    def customImage = docker.build("-t login-app:${env.BUILD_ID}", "-f ${dockerfile} .")
+    def customImage = docker.build("login-app:${env.BUILD_ID}", "-f ${dockerfile} .")
 
   //Run the container and push the image to docker hub
 
