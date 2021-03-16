@@ -1,16 +1,17 @@
 pipeline {
      agent {
-    // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+    // Equivalent to "docker build -f Dockerfile-login --build-arg version=1.0.2 .
 
     dockerfile {
-        filename 'Dockerfile-login'
-        dir '.'
-        label 'master'
-        additionalBuildArgs  '--build-arg version=1.0.2'
-        args '-t pbadhe34/login -v /tmp:/tmp'
+        filename "Dockerfile-login"
+        dir "."
+        label "master"
+        additionalBuildArgs  "--build-arg version=1.0.2"
+        args "-t pbadhe34/login -v /tmp:/tmp"
     }
-    docker { image 'pbadhe34/apps:login' 
-         args '-p 8080:8080'
+    docker { image "pbadhe34/login" 
+         args "-p 8080:8080"
+        }
  }
   stages {
      stage('Image build') {
