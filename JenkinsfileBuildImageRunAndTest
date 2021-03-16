@@ -10,8 +10,7 @@ pipeline {
         filename "Dockerfile-login"
         dir "."
         label "master"
-        additionalBuildArgs  "  --build-arg --tag pbadhe34/login:latest"
-        args "-t pbadhe34/login"
+        additionalBuildArgs  "  --build-arg --tag pbadhe34/login:latest"         
       }
     }
       steps {
@@ -21,7 +20,7 @@ pipeline {
     }
    stage('Test') {
      agent {
-          docker { image "pbadhe34/login" 
+          docker { image "pbadhe34/login:latest" 
               args "-p 8080:8080"
              }
          }
