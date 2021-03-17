@@ -1,6 +1,6 @@
 pipeline {
-     agent none    
-     checkout(scm)
+     //agent none    
+     //checkout(scm)
   stages {
      stage('Image build') {
        agent {
@@ -17,7 +17,7 @@ pipeline {
             echo "Build image done" 
       } 
     }
-   stage('Test') {
+   stage('Test Image') {
      agent {
           docker { 
                image "pbadhe34/login:latest" 
