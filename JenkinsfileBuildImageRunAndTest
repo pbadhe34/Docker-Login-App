@@ -22,11 +22,11 @@ pipeline {
      agent {
           docker { 
                image "pbadhe34/login:latest" 
-               args "-p 1090:8080"
+               args "-p 8080:8080"
              }
          }
             steps {
-                sh 'sleep 1'
+                //sh 'sleep 1'
                 sh "curl http://localhost:1090/Login"
             }
         }
