@@ -27,7 +27,7 @@ pipeline {
          }
             steps {
                 //sh 'sleep 1'
-                sh "curl http://localhost:1090/Login"
+                sh "curl http://localhost:8080/Login"
             }
         }
  }
