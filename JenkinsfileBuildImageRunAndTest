@@ -13,9 +13,8 @@ pipeline {
         additionalBuildArgs  " -t pbadhe34/login:latest"         
       }
     }
-      steps {
-                  
-            echo "Build image" 
+      steps {                  
+            echo "Build image done" 
       } 
     }
    stage('Test') {
