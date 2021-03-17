@@ -13,7 +13,8 @@ pipeline {
         additionalBuildArgs  " -t pbadhe34/login:latest"         
       }
     }
-      steps {                  
+      steps {     
+            sh 'sleep 5'
             echo "Build image done" 
       } 
     }
